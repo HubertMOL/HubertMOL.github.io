@@ -1,7 +1,512 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spis Drukarek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .section-header {
+            background-color: #0046ad;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            padding: 8px 0;
+        }
+
+        .green  {
+            background-color: #ccffcc;
+            width: 50px;
+        }
+
+        .yellow {
+            background-color: #fffb00;
+        }
+
+        .status-yellow {
+            background-color: #ffffcc;
+            text-align: left;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode table {
+            border-collapse: collapse;
+        }
+
+        .dark-mode th, .dark-mode td {
+            border: 1px solid #444;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .green {
+            background-color: #66cc66;
+        }
+
+        .dark-mode .yellow {
+            background-color: #ffff66;
+        }
+
+        #theme-toggle {
+            display: flex;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        body {
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .sync-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+        }
+
+        .sync-dot {
+            height: 10px;
+            width: 10px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        .sync-icon {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .sync-red {
+            background-color: red;
+            animation: blink 0.5s infinite;
+        }
+
+        .sync-yellow {
+            background-color: #fab431;
+            animation: blink 1s infinite;
+        }
+
+        .sync-green {
+            background-color: green;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<p>Kod stworzony przez <a href="https://hubertprzypis.pl" target="_blank" style="text-decoration: none; color: inherit;"><u>Huberta Przypisa</u></a> na użytek <a href="https://mol.net.pl/" target="_blank" style="text-decoration: none; color: inherit;"><u>MOL</u></a><p><p></p>
+<button id="theme-toggle">Tryb ciemny</button>
+<div class="sync-status">Stan synchronizacji: <span class="sync-dot" id="sync-0"></span></div>
+<br></br>
+    <table>
+        <tr>
+            <th>== Spis ogólny ==</th>
+        </tr>
+         <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet M506M: x2</td>
+                        <td class="green"></td>
+                        <td>HP LaserJet Pro M201dw: x7</td>
+                        <td class="green"></td>
+                        <td>HP LaserJet 1018: x3</td>
+                        <td class="green"></td>
+                        <td>HP LaserJet P1102: x1</td>
+                        <td class="green"></td>
+                        <td>LaserJet M551: x1</td>
+                        <td class="green"></td>
+                        <td>HP LaserJet Pro M203dw: x2</td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Brother HL-L23520W: x2</td>
+                        <td class="green"></td>
+                        <td>Brother HL1210We: x1</td>
+                        <td class="green"></td>
+                        <td>Brother MFC-L27DW: x1</td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Cannon 220240V: x1</td>
+                        <td class="green"></td>
+                        <td>Canon LBP122dw: x2 </td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Kyocera FS–3920 dn: x1</td>
+                        <td class="green"></td>
+                        <td>kyocera ecosys M2535dn: x1</td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Konica Minolta Bizhub 222: x1</td>
+                        <td class="green"></td>
+                        <td>Konica Minolta Bizhub 223: x1</td>
+                        <td class="green"></td> 
+                        <td>Konica Minolta Bizhub C224e: x1</td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Lexmark MS510dn: x2</td>
+                        <td class="green"></td>
+                        <td>Lexmark MS417dn: x1</td>
+                        <td class="green"></td>
+                        <tr></tr>
+                        <td>Zebra GK 420d: x1</td>
+                        <td class="green"></td>
+                        <td>Zebra GK 420t: x1</td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+    </table>
+    <br></br>
+    <table>
+        <tr>
+            <th>== Dział ==</th>
+            <th>Model drukarki i jej status</th>
+        </tr>
+        <tr>
+            <td>Stara hala</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP laserjet M506M</td>
+                        <td><span class="sync-icon sync-green" id="sync-1"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Dział sprzedaży/detal/marketing</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Bizhub C224e</td>
+                        <td><span class="sync-icon sync-yellow" id="sync-2"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>HP LaserJet 1018</td>
+                        <td><span class="sync-icon sync-red" id="sync-3"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Lexmark MS417dn</td>
+                        <td><span class="sync-icon sync-red" id="sync-4"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>HP M201dw</td>
+						<td><span class="sync-icon sync-red" id="sync-5"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Brother HL-L23520W</td>
+                        <td><span class="sync-icon sync-red" id="sync-6"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>LaserJet Pro M201dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-7"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>LaserJet Pro M201dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-8"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Eksport</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Brother HL-L23520W</td>
+                        <td><span class="sync-icon sync-red" id="sync-9"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>HP LaserJet 1018</td>
+                        <td><span class="sync-icon sync-red" id="sync-10"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>HP LaserJet M506m</td>
+                        <td><span class="sync-icon sync-red" id="sync-11"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>Canon LBP122dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-12"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Detal/marketing</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Konica Minolta Bizhub C224e</td>
+                        <td><span class="sync-icon sync-red" id="sync-13"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Kier. Prod.</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet P1102</td>
+                        <td><span class="sync-icon sync-red" id="sync-14"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>kier. Kadr.</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Canon LBP122dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-15"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Inwestycje</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>bizhub 223</td>
+                        <td><span class="sync-icon sync-red" id="sync-16"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                    	<td>LaserJet M551</td>
+                    	<td><span class="sync-icon sync-red" id="sync-17"></span></td>
+                        <td class="yellow"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Magazyn</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Zebra GK 420d</td>
+                        <td><span class="sync-icon sync-red" id="sync-18"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>Zebra GK 420t</td>
+                        <td><span class="sync-icon sync-red" id="sync-19"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>Kyocera FS – 3920 DN</td>
+                        <td><span class="sync-icon sync-red" id="sync-20"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Zarząd</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Arkadiusz Semba - LaserJet Pro M201dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-21"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Krzysztof Schmidt - HP LaserJet Pro M203dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-22"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Jacek Kupczyk - Brother  HL1210We</td>
+                        <td><span class="sync-icon sync-red" id="sync-23"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Wiesława Szmidt - M201dw (ta sama co księgowość)</td>
+                        <td><span class="sync-icon sync-red" id="sync-24"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Próbnikowania</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Lexmark MS510dn</td>
+                        <td><span class="sync-icon sync-red" id="sync-25"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Pokój inż.</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet 1018</td>
+                        <td><span class="sync-icon sync-red" id="sync-26"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td>Szwalnia</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>kyocera ecosys M2535dn</td>
+                        <td><span class="sync-icon sync-red" id="sync-27"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td>słoneczne markizy</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet Pro M203dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-28"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>Konica Minolta Bizhub 222</td>
+                        <td><span class="sync-icon sync-red" id="sync-29"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td>Hurt</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet Pro M201 dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-30"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>HP LaserJet Pro M201 dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-31"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                    <tr>
+                        <td>HP LaserJet Pro M201 dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-32"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                     <tr>
+                        <td>Lexmark MS 510 DN</td>
+                        <td><span class="sync-icon sync-red" id="sync-33"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td>Zakupy</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>LaserJet pro M201 dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-34"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Recepcja</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Brother MFC-L27DW</td>
+                        <td><span class="sync-icon sync-red" id="sync-35"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td>Księgowość</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>HP LaserJet Pro M201 dw</td>
+                        <td><span class="sync-icon sync-red" id="sync-36"></span></td>
+                        <td class="green"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+        <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+
+        function setSyncStatus(id, status) {
+            const element = document.getElementById(id);
+            element.className = 'sync-icon ' + status;
+        }
+
+        // Example usage:
+        // setSyncStatus('sync-1', 'sync-green');
+        // setSyncStatus('sync-2', 'sync-orange');
+    </script>
+    <p style="font-size: 12px; color: #999; text-align: center;">&copy; 2024 Hubert Przypis. All rights reserved. <a href="https://hubertprzypis.pl" target="_blank" style="text-decoration: none; color: inherit;">Visit my website</a></p>
 </body>
 </html>
