@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    vertical-align: middle;
+    text-align: ce;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.section-header {
+    background-color: #0046ad;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px 0;
+}
+
+.green  {
+    background-color: #ccffcc;
+    width: 20px;
+}
+
+.yellow {
+    background-color: #fffb00;
+    width: 20px;
+}
+
+.red {
+    background-color: #f8d7da;
+    width: 20px;
+}
+
+.status-yellow {
+    background-color: #288f8a;
+    text-align: left;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode table {
+    border-collapse: collapse;
+}
+
+.dark-mode th, .dark-mode td {
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .green {
+    background-color: #66cc66;
+}
+
+.dark-mode .yellow {
+    background-color: #ffff66;
+}
+
+#theme-toggle {
+    display: flex;
+    margin: 20px auto;
+    text-align: center;
+}
+
+body {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.sync-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+}
+
+.sync-dot {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.sync-icon {
+    height: 10px; /* Wysokość ikony */
+    width: 10px;  /* Szerokość ikony */
+    border-radius: 50%; /* Określenie kształtu ikony jako okrągły */
+    display: inline-block; /* Ustawienie ikony w linii */
+    background-color: currentColor; /* Kolor tła będzie zależny od klasy */
+    margin: 0 auto; /* Wyśrodkowanie w poziomie w obrębie komórki */
+}
+
+.sync-cell {
+    width: 20px; /* Szerokość komórki */
+    text-align: center; /* Wyśrodkowanie tekstu w poziomie */
+    vertical-align: middle; /* Wyśrodkowanie tekstu w pionie */
+}
+
+.sync-red {
+    background-color: red;
+    animation: blink 0.5s infinite;
+}
+
+.sync-yellow {
+    background-color: #ffdb0d;
+    animation: blink 1s infinite;
+}
+
+.sync-green {
+    background-color: green;
+}
+
+.table-container {
+    margin: 0 auto; /* Wyśrodkowanie tabeli */
+    max-width: 1200px; /* Maksymalna szerokość tabeli */
+}
